@@ -16,7 +16,17 @@ pipeline {
 				// '''
 
 				//Node bat running on Windows OS
-				call "C:\\Users\\Sean\\Documents\\GitHub\\Jenkin-Github-Backup-Test\\jobs\\sample02-job\\response.bat"
+				bat '''
+					SET HTTP=200
+					if "%HTTP%" == "200" (
+					    echo successed
+					    exit /b 0
+					) else (
+					    echo failed
+					    exit /b 1
+					)
+
+				'''
 			}
 		}
 	}
