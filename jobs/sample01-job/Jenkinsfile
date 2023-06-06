@@ -1,0 +1,10 @@
+pipeline {
+	ageny any
+	stages {
+		stage ('sample01 pipeline') {
+			steps {
+				echo 'Hello Jenkins (GitHub)'
+			}
+		}
+	}
+}
