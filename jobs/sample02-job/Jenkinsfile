@@ -8,9 +8,11 @@ pipeline {
 					GROUP_ID="-000000000"
 					CODE=$(curl -o /dev/null -s -w %{http_code} www.example.com)
 
-					if [ "${CODE}" != "200" ]; then
-						echo "www.example.com response code != 200."
-					fi
+					if [ "${command}" != "200" ]; then
+                      message="www.example.com response code != 200."
+                      curl -X GET "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+                          -d "chat_id=${GROUP_ID}&text=${message}"
+                    fi 
 				'''
 			}
 		}
