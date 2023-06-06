@@ -16,7 +16,7 @@ pipeline {
 				// '''
 
 				//Node bat running on Windows OS
-				bat "C:\Users\Sean\Documents\GitHub\Jenkin-Github-Backup-Test\jobs\sample02-job\response.bat"
+				call "C:\Users\Sean\Documents\GitHub\Jenkin-Github-Backup-Test\jobs\sample02-job\response.bat"
 			}
 		}
 	}
