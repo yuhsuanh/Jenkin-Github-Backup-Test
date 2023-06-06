@@ -1,0 +1,19 @@
+pipeline {
+	agent any
+	stages {
+		stage ('sample02 pipeline') {
+			steps {
+				sh '''
+					TOKEN="test-token"
+					GROUP_ID="-000000000"
+					CODE=$"(curl -o /dev/null -s -w %{http_code} www.example.com)"
+
+					if [ "${CODE} != 200"]; then
+						message="www.example.com response code != 200."
+						echo message
+					fi
+				'''
+			}
+		}
+	}
+}
