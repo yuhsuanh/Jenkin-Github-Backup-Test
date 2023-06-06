@@ -3,11 +3,20 @@ pipeline {
 	stages {
 		stage ('sample02 pipeline') {
 			steps {
-				sh '''
-					TOKEN="test-token"
-					GROUP_ID="-000000000"
-					CODE=$(curl -o /dev/null -s -w %{http_code} www.example.com)
-				'''
+				//Node: sh need be running on Lunux OS
+				// sh '''
+				// 	TOKEN="test-token"
+				// 	GROUP_ID="-000000000"
+				// 	CODE=$(curl -o /dev/null -s -w %{http_code} www.example.com)
+				// 	if [ "${command}" != "200" ]; then
+                //       message="www.example.com response code != 200."
+                //       curl -X GET "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+                //           -d "chat_id=${GROUP_ID}&text=${message}"
+                //     fi 
+				// '''
+
+				//Node bat running on Windows OS
+				response.bat
 			}
 		}
 	}
