@@ -19,10 +19,9 @@ pipeline {
 				//for /F %I in ('curl -o /dev/null -s -w %{http_code} www.example.com') do set HTTP=%I
 				withCredentials([string(credentialsId: 'test-token', variable: 'TOKEN')]){
 					bat '''
-						SET HTTP = 200
+						SET HTTP=200
 						if "%HTTP%" == "200" (
 						    echo successed
-						    echo %TOKEN%
 						    exit /b 0
 						) else (
 						    echo failed
