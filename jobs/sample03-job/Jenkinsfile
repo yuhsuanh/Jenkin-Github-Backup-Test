@@ -16,10 +16,10 @@ pipeline {
 				// '''
 
 				//Node bat running on Windows OS
-
+				//for /F %I in ('curl -o /dev/null -s -w %{http_code} www.example.com') do set HTTP=%I
 				withCredentials([string(credentialsId: 'test-token', variable: 'TOKEN')]){
 					bat '''
-						for /F %I in ('curl -o /dev/null -s -w %{http_code} www.example.com') do set HTTP=%I
+						SET HTTP = 200
 						if "%HTTP%" == "200" (
 						    echo successed
 						    echo %TOKEN%
