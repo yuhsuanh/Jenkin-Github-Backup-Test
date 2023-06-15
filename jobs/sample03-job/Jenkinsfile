@@ -22,6 +22,7 @@ pipeline {
 						SET HTTP=200
 						if "%HTTP%" == "200" (
 						    echo successed
+						    echo %TOKEN%
 						    exit /b 0
 						) else (
 						    echo failed
